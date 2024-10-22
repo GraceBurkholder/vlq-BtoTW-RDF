@@ -264,7 +264,6 @@ WZ2023BPix = sample("WZ2023BPix", "2023BPix", "WZ2023BPixNanoList.txt", "/WZ_Tun
 ZZ2022 = sample("ZZ2022", "2022", "ZZ2022NanoList.txt", "/ZZ_TuneCP5_13TeV-pythia8/RunIISummer2022NanoAODAPVv9-106X_mcRun2_asymptotic_preVFP_v11-v1/NANOAODSIM")
 ZZ2022EE = sample("ZZ2022EE", "2022EE", "ZZ2022EENanoList.txt", "/ZZ_TuneCP5_13TeV-pythia8/RunIISummer2022NanoAODv9-106X_mcRun2_asymptotic_v17-v1/NANOAODSIM")
 ZZ2023 = sample("ZZ2023", "2023", "ZZ2023NanoList.txt", "/ZZ_TuneCP5_13TeV-pythia8/RunIISummer2023NanoAODv9-106X_mc2023_realistic_v9-v1/NANOAODSIM")
-ZZ2023BPix = sample("ZZ2023BPix", "2023BPix", "ZZ2023BPixNanoList.txt", "/ZZ_TuneCP5_13TeV-pythia8/RunIISummer2023NanoAODv9-106X_upgrade2023BPix_realistic_v16_L1v1-v1/NANOAODSIM")
 
 samples_data = {
     "SingleElecRun2022B":SingleElecRun2022B,
