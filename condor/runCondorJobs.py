@@ -10,7 +10,7 @@ exec(open("/uscms_data/d3/jmanagan/EOSSafeUtils.py").read()) # this is a python2
 start_time = time.time()
 
 # --- Sample Dictionary ---
-sample_dic = samples # This is the name of the list (using list of class objects to keep ordering)
+sample_dic = samples_test # This is the name of the list (using list of class objects to keep ordering)
 
 # --- Size of Condor Job ---
 filesPerJob = 999
@@ -25,10 +25,10 @@ if len(sys.argv) >= 4:
     prefix = sys.argv[3] # 'singleTb'
     textlist = prefix + "NanoList.txt"
     
-relbase = '/uscms/home/jmanagan/nobackup/BtoTW/CMSSW_12_4_8/'
-outDir='/store/user/jmanagan/BtoTW_Sep2023_fullRun2/'
-condorDir='/uscms/home/jmanagan/nobackup/BtoTW/rdfjobs_Sep2023_fullRun2/' # recommend this be outside git area!
-tarfile = '/uscms/home/jmanagan/nobackup/rdfjobs.tar' # outside the CMSSW
+relbase = '/uscms/home/burkhold/nobackup/CMSSW_13_0_18/'
+outDir='/store/user/burkhold/BtoTW_Nov/'
+condorDir='/uscms/home/burkhold/nobackup/BtoTW_Nov/' # recommend this be outside git area!
+tarfile = '/uscms/home/burkhold/nobackup/rdfjobs.tar' # outside the CMSSW
 
 runDir=os.getcwd()
 cTime=datetime.datetime.now()
@@ -91,6 +91,7 @@ if runanalyzer:
         command = '/cvmfs/cms.cern.ch/common/dasgoclient --query="dataset dataset='+v.samplename+' | grep dataset.size" '
         proc = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
         (out, err) = proc.communicate()
+        out = out.decode('utf-8')
         try: 
             samplesize = int(out.split('\n')[0])
         except:    

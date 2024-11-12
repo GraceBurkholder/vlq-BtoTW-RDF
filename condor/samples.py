@@ -56,6 +56,7 @@ Bprime_M800_2022EE  = sample("Bprime_M800_2022EE", "2022EE", "Bprime_M800_2022EE
 Bprime_M800_2023  = sample("Bprime_M800_2023", "2023", "Bprime_M800_2023NanoList.txt", "/BprimeBtoTW_M-800_NWALO_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM")
 Bprime_M800_2023BPix  = sample("Bprime_M800_2023BPix", "2023BPix", "Bprime_M800_2023BPixNanoList.txt", "/BprimeBtoTW_M-800_NWALO_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23BPixNanoAODv12-130X_mcRun3_2023_realistic_postBPix_v6-v2/NANOAODSIM")
 
+DYPT402022 = sample("DYPT402022", "2022", "DYPT402022NanoList.txt", "/DYto2L-4Jets_MLL-50_PTLL-40to100_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5-v2/NANOAODSIM")
 DYPT402022EE = sample("DYPT402022EE", "2022EE", "DYPT402022EENanoList.txt", "/DYto2L-4Jets_MLL-50_PTLL-40to100_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM")
 DYPT402023 = sample("DYPT402023", "2023", "DYPT402023NanoList.txt", "/DYto2L-4Jets_MLL-50_PTLL-40to100_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM")
 DYPT402023BPix = sample("DYPT402023BPix", "2023BPix", "DYPT402023BPixNanoList.txt", "/DYto2L-4Jets_MLL-50_PTLL-40to100_TuneCP5_13p6TeV_madgraphMLM-pythia8/Run3Summer23BPixNanoAODv12-130X_mcRun3_2023_realistic_postBPix_v6-v2/NANOAODSIM")
@@ -587,3 +588,6 @@ samples={
 }
 
 
+samples_test = {
+        "Bprime_M1400_2022":  Bprime_M1400_2022,
+}
