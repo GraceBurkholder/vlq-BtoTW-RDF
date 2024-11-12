@@ -117,13 +117,13 @@ void rdf::analyzer_RDF(TString testNum, TString jesvar)
   else if(year == "2023BPix") {mutrig = "OldMu100_or_TkMu100"; deepjetL = 0.048; yrstr = "2023_Summer23BPix"; yr = "18"; jecyr = "Summer23BPixPrompt23"; jeryr = "Summer23BPixPrompt23_RunD"; jecver = "V1"; puname = "Collisions2023_369803_370790_eraD_GoldenJson"; jetvetoname = "Summer23BPixPrompt23_RunD_V1"; elecyr = "2023PromptD";}
   else std::cout << "ERROR: Can't parse the year to assign correctionLib json files. Expected 2022, 2022EE, 2023, or 2023BPix. Got: " << year << std::endl;
   
-  auto pileupcorrset = CorrectionSet::from_file("/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/LUM/"+yrstr+"/puWeights.json.gz");
-  auto electroncorrset = CorrectionSet::from_file("/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/EGM/"+yrstr+"/electron.json.gz");
-  auto muoncorrset = CorrectionSet::from_file("/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/MUO/"+yrstr+"/muon_Z.json.gz");
-  auto btagcorrset = CorrectionSet::from_file("/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/BTV/"+yrstr+"/btagging.json.gz");
-  auto jetvetocorrset = CorrectionSet::from_file("/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/JME/"+yrstr+"/jetvetomaps.json.gz");
- // auto jmarcorrset = CorrectionSet::from_file("/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/JME/"+yrstr+"/jmar.json.gz");
- // auto metcorrset = CorrectionSet::from_file("/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/JME/"+yrstr+"/met.json.gz");  
+  auto pileupcorrset = CorrectionSet::from_file("jsonpog-integration/POG/LUM/"+yrstr+"/puWeights.json");
+  auto electroncorrset = CorrectionSet::from_file("jsonpog-integration/POG/EGM/"+yrstr+"/electron.json");
+  auto muoncorrset = CorrectionSet::from_file("jsonpog-integration/POG/MUO/"+yrstr+"/muon_Z.json");
+  auto btagcorrset = CorrectionSet::from_file("jsonpog-integration/POG/BTV/"+yrstr+"/btagging.json");
+  auto jetvetocorrset = CorrectionSet::from_file("jsonpog-integration/POG/JME/"+yrstr+"/jetvetomaps.json");
+ // auto jmarcorrset = CorrectionSet::from_file("jsonpog-integration/POG/JME/"+yrstr+"/jmar.json");
+ // auto metcorrset = CorrectionSet::from_file("jsonpog-integration/POG/JME/"+yrstr+"/met.json");  
   auto pileupcorr = pileupcorrset->at(puname); std::cout << "\t loaded pileup" << std::endl;
   auto electroncorr = electroncorrset->at("Electron-ID-SF"); std::cout << "\t loaded elec id" << std::endl;
   auto muonidcorr = muoncorrset->at("NUM_MediumID_DEN_TrackerMuons"); std::cout << "\t loaded muon id" << std::endl;
@@ -137,8 +137,8 @@ void rdf::analyzer_RDF(TString testNum, TString jesvar)
   //auto metphicorr = metcorrset->at("phi_metphicorr_pfmet_mc"); std::cout << "\t loaded met phi xy" << std::endl;
   //if(!isMC){metptcorr = metcorrset->at("pt_metphicorr_pfmet_data"); metphicorr = metcorrset->at("phi_metphicorr_pfmet_data");}
   
-  auto ak4corrset = CorrectionSet::from_file("/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/JME/"+yrstr+"/jet_jerc.json.gz"); 
-  auto ak8corrset = CorrectionSet::from_file("/cvmfs/cms.cern.ch/rsync/cms-nanoAOD/jsonpog-integration/POG/JME/"+yrstr+"/fatJet_jerc.json.gz"); 
+  auto ak4corrset = CorrectionSet::from_file("jsonpog-integration/POG/JME/"+yrstr+"/jet_jerc.json"); 
+  auto ak8corrset = CorrectionSet::from_file("jsonpog-integration/POG/JME/"+yrstr+"/fatJet_jerc.json"); 
   auto ak4corr = ak4corrset->compound().at(jecyr+"_"+jecver+"_MC_L1L2L3Res_AK4PFPuppi"); std::cout << "\t loaded jerc MC" << std::endl;
   auto ak4corrL1 = ak4corrset->at(jecyr+"_"+jecver+"_MC_L1FastJet_AK4PFPuppi"); std::cout << "\t loaded jerc L1" << std::endl;
   if(!isMC){ ak4corr = ak4corrset->compound().at(jecyr+"_Run"+jecera+"_"+jecver+"_DATA_L1L2L3Res_AK4PFPuppi"); std::cout << "\t loaded jerc data" << std::endl;}
